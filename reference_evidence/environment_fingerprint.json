@@ -1,0 +1,41 @@
+{
+  "preflight_result": "PASS",
+  "python_version": "3.12.10",
+  "python_implementation": "CPython",
+  "python_major_minor": "3.12",
+  "python_exact": "3.12.10",
+  "architecture": "AMD64",
+  "bits": 64,
+  "platform": "Windows-11-10.0.22631-SP0",
+  "approved_env_file": "environment/approved_environment.yaml",
+  "dependency_metadata_versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.6",
+    "pmdarima": "2.0.4",
+    "ruptures": "1.1.10",
+    "scikit-learn": "1.5.2",
+    "xgboost": "2.1.4",
+    "torch": "2.4.1"
+  },
+  "dependency_import_versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.6",
+    "pmdarima": "2.0.4",
+    "ruptures": "v1.1.10",
+    "scikit-learn": "1.5.2",
+    "xgboost": "2.1.4"
+  },
+  "torch": {
+    "metadata_version": "2.4.1",
+    "approved_version": "2.4.1",
+    "import_ok": true,
+    "runtime_version": "2.4.1+cpu",
+    "use_deterministic_algorithms_callable": true,
+    "cpu_tensor_test": true,
+    "cuda_available": false
+  }
+}

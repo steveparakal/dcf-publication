@@ -1,0 +1,361 @@
+{
+  "object": "Table S17 / Table 5.3 prespecified Level-2 sensitivity completion",
+  "dataset_order": [
+    "Beijing_PM25",
+    "Bike_Sharing",
+    "CPIAUCSL",
+    "EIA_Energy_Production",
+    "EUR_USD",
+    "FAO_Food_Price",
+    "INDPRO",
+    "Jena_Climate",
+    "SP500",
+    "WTI"
+  ],
+  "model_order": [
+    "seasonal_naive",
+    "drift",
+    "arima",
+    "sarima",
+    "ets",
+    "random_forest",
+    "xgboost",
+    "svr",
+    "lstm",
+    "gru",
+    "tcn"
+  ],
+  "permutations": 9999,
+  "seed": 42,
+  "primary_reconstruction": {
+    "rho": 0.06297760210803688,
+    "p_parametric": 0.6810822720955892,
+    "p_mantel": 0.8064,
+    "n_dataset_pairs": 45,
+    "n_permutations": 9999,
+    "n_discarded_permutations": 0
+  },
+  "sensitivities": {
+    "S1": {
+      "rho": -0.2963109354413702,
+      "p_parametric": 0.04810795921674594,
+      "p_mantel": 0.3259,
+      "n_dataset_pairs": 45,
+      "n_permutations": 9999,
+      "n_discarded_permutations": 0,
+      "label": "robustness_relative_rmse",
+      "description": "Ordinary relative RMSE vector; RMS-Euclidean",
+      "evidence_state": "Inconclusive"
+    },
+    "S2": {
+      "rho": 0.8370285074842079,
+      "p_parametric": 7.848706470990395e-13,
+      "p_mantel": 0.0003,
+      "n_dataset_pairs": 45,
+      "n_permutations": 9999,
+      "n_discarded_permutations": 0,
+      "label": "robustness_model_ranks",
+      "description": "Within-dataset model ranks; RMS-Euclidean",
+      "evidence_state": "Supported"
+    },
+    "S3": {
+      "rho": 0.720816864295125,
+      "p_parametric": 2.3509544469112605e-08,
+      "p_mantel": 0.0082,
+      "n_dataset_pairs": 45,
+      "n_permutations": 9999,
+      "n_discarded_permutations": 0,
+      "label": "robustness_cosine_distance",
+      "description": "Cosine distance on primary z vector",
+      "evidence_state": "Supported"
+    },
+    "S4": {
+      "rho": 0.6386034255599472,
+      "p_parametric": 2.356258919418001e-06,
+      "p_mantel": 0.0168,
+      "n_dataset_pairs": 45,
+      "n_permutations": 9999,
+      "n_discarded_permutations": 0,
+      "label": "robustness_correlation_distance",
+      "description": "Correlation distance on primary z vector",
+      "evidence_state": "Supported"
+    },
+    "S7": {
+      "rho": -0.00013175230566534913,
+      "p_parametric": 0.9993146574101583,
+      "p_mantel": 0.9998,
+      "n_dataset_pairs": 45,
+      "n_permutations": 9999,
+      "n_discarded_permutations": 0,
+      "label": "diagnostic_raw_rmse_scale_defect",
+      "description": "Raw RMSE vector; Euclidean distance (scale diagnostic)",
+      "evidence_state": "Diagnostic only"
+    },
+    "S5": {
+      "label": "sensitivity_leave_one_model_out",
+      "results": [
+        {
+          "rho": 0.0613965744400527,
+          "p_parametric": 0.688678370213444,
+          "p_mantel": 0.8098,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "seasonal_naive",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.06758893280632411,
+          "p_parametric": 0.6591068293547973,
+          "p_mantel": 0.7933,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "drift",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.0606060606060606,
+          "p_parametric": 0.6924878633963146,
+          "p_mantel": 0.8122,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "arima",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.0606060606060606,
+          "p_parametric": 0.6924878633963146,
+          "p_mantel": 0.8122,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "sarima",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.057707509881422925,
+          "p_parametric": 0.7065196835331766,
+          "p_mantel": 0.8225,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "ets",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.05823451910408431,
+          "p_parametric": 0.7039611135052097,
+          "p_mantel": 0.8186,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "random_forest",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.059815546772068504,
+          "p_parametric": 0.6963048745756049,
+          "p_mantel": 0.8139,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "xgboost",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.1002635046113307,
+          "p_parametric": 0.5122645040709644,
+          "p_mantel": 0.6738,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "svr",
+          "evidence_state": "Inconclusive"
+        },
+        {
+          "rho": 0.0769433465085639,
+          "p_parametric": 0.615405241589024,
+          "p_mantel": 0.7879,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "lstm",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.07299077733860342,
+          "p_parametric": 0.6337217717436889,
+          "p_mantel": 0.7919,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "gru",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.055335968379446626,
+          "p_parametric": 0.718072516415924,
+          "p_mantel": 0.828,
+          "n_dataset_pairs": 45,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_model": "tcn",
+          "evidence_state": "Unsupported"
+        }
+      ],
+      "summary": {
+        "Unsupported": 10,
+        "Inconclusive": 1,
+        "Partially Supported": 0,
+        "Supported": 0
+      }
+    },
+    "S6": {
+      "label": "sensitivity_leave_one_dataset_out",
+      "results": [
+        {
+          "rho": -0.09034749034749036,
+          "p_parametric": 0.600259342775709,
+          "p_mantel": 0.764,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "Beijing_PM25",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.06821106821106822,
+          "p_parametric": 0.6926335756675004,
+          "p_mantel": 0.7881,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "Bike_Sharing",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.02496782496782497,
+          "p_parametric": 0.8850722048934369,
+          "p_mantel": 0.9419,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "CPIAUCSL",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.11788931788931789,
+          "p_parametric": 0.49349121862798384,
+          "p_mantel": 0.6492,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "EIA_Energy_Production",
+          "evidence_state": "Inconclusive"
+        },
+        {
+          "rho": 0.23191763191763193,
+          "p_parametric": 0.17350168643377584,
+          "p_mantel": 0.3743,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "EUR_USD",
+          "evidence_state": "Inconclusive"
+        },
+        {
+          "rho": 0.007722007722007722,
+          "p_parametric": 0.9643484210348735,
+          "p_mantel": 0.9767,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "FAO_Food_Price",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.015186615186615189,
+          "p_parametric": 0.9299491110104222,
+          "p_mantel": 0.9546,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "INDPRO",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.005405405405405406,
+          "p_parametric": 0.9750398473755058,
+          "p_mantel": 0.9855,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "Jena_Climate",
+          "evidence_state": "Unsupported"
+        },
+        {
+          "rho": 0.17297297297297298,
+          "p_parametric": 0.3130508649525435,
+          "p_mantel": 0.5564,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "SP500",
+          "evidence_state": "Inconclusive"
+        },
+        {
+          "rho": 0.1052767052767053,
+          "p_parametric": 0.5411533858826632,
+          "p_mantel": 0.7024,
+          "n_dataset_pairs": 36,
+          "n_permutations": 9999,
+          "n_discarded_permutations": 0,
+          "omitted_dataset": "WTI",
+          "evidence_state": "Inconclusive"
+        }
+      ],
+      "summary": {
+        "Unsupported": 6,
+        "Inconclusive": 4,
+        "Partially Supported": 0,
+        "Supported": 0,
+        "primary_exact_state_preserved": 6,
+        "n_total": 10
+      }
+    }
+  },
+  "independent_second_checks": {
+    "S1": {
+      "rho_equal": true,
+      "p_mantel_equal": true,
+      "discarded_equal": true
+    },
+    "S2": {
+      "rho_equal": true,
+      "p_mantel_equal": true,
+      "discarded_equal": true
+    },
+    "S3": {
+      "rho_equal": true,
+      "p_mantel_equal": true,
+      "discarded_equal": true
+    },
+    "S4": {
+      "rho_equal": true,
+      "p_mantel_equal": true,
+      "discarded_equal": true
+    },
+    "S7": {
+      "rho_equal": true,
+      "p_mantel_equal": true,
+      "discarded_equal": true
+    }
+  },
+  "notes": [
+    "S7 is a scale diagnostic and is not co-equal primary evidence.",
+    "Sensitivity analyses do not upgrade the primary Level-2 evidence state.",
+    "S6 reports full permutation results; its rho values exactly match the LODO rho values already persisted in final Stage 7."
+  ]
+}

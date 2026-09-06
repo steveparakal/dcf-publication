@@ -1,0 +1,112 @@
+{
+  "_schema": "DCF_publication_runtime_manifest_v1",
+  "_description": "Runtime identity and reproducibility contract for the ten-dataset DCF publication pipeline.",
+  "publication_release_id": "v1.2.0-rc20",
+  "dcf_version": "1.2.0",
+  "publication_config_file": "configs/publication.yaml",
+  "random_seeds": {
+    "global_seed": 42,
+    "torch_seed": 42,
+    "numpy_seed": 42,
+    "bootstrap_seed": 42,
+    "permutation_seed": 42
+  },
+  "study_identity": {
+    "datasets_ordered": [
+      "CPIAUCSL",
+      "INDPRO",
+      "WTI",
+      "Jena_Climate",
+      "Beijing_PM25",
+      "SP500",
+      "EUR_USD",
+      "Bike_Sharing",
+      "EIA_Energy_Production",
+      "FAO_Food_Price"
+    ],
+    "dataset_reader_names": {
+      "CPIAUCSL": "CPI (All Urban Consumers, SA)",
+      "INDPRO": "Industrial Production Index",
+      "WTI": "WTI Crude Oil Price",
+      "Jena_Climate": "Jena Climate",
+      "Beijing_PM25": "Beijing PM2.5",
+      "SP500": "S&P 500",
+      "EUR_USD": "EUR/USD Exchange Rate",
+      "Bike_Sharing": "Bike Sharing",
+      "EIA_Energy_Production": "EIA Energy Production",
+      "FAO_Food_Price": "FAO Food Price"
+    },
+    "n_datasets": 10,
+    "model_order": [
+      "naive",
+      "seasonal_naive",
+      "drift",
+      "arima",
+      "sarima",
+      "ets",
+      "random_forest",
+      "xgboost",
+      "svr",
+      "lstm",
+      "gru",
+      "tcn"
+    ],
+    "n_models_total": 12,
+    "n_non_naive_models": 11,
+    "naive_reference": "naive"
+  },
+  "analytical_parameters": {
+    "train_fraction": 0.7,
+    "pelt_penalty": 10,
+    "pelt_min_size": 10,
+    "pelt_cost": "l2",
+    "tds_lag_set": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "adf_alpha": 0.05,
+    "level1_permutations": 9999,
+    "level2_mantel_permutations": 9999,
+    "bootstrap_replications": 1000,
+    "level1_bootstrap_replications": 1000
+  },
+  "dataset_identity": {
+    "CPIAUCSL": {
+      "prepared_series_sha256_prefix": "41da2994"
+    },
+    "INDPRO": {
+      "prepared_series_sha256_prefix": "b47c3667"
+    },
+    "WTI": {
+      "prepared_series_sha256_prefix": "52bf3396"
+    },
+    "Jena_Climate": {
+      "prepared_series_sha256_prefix": "31579b38"
+    },
+    "Beijing_PM25": {
+      "prepared_series_sha256_prefix": "86d70852"
+    },
+    "SP500": {
+      "prepared_series_sha256_prefix": "97981d46"
+    },
+    "EUR_USD": {
+      "prepared_series_sha256_prefix": "4a340c9e"
+    },
+    "Bike_Sharing": {
+      "prepared_series_sha256_prefix": "0b60cbf9"
+    },
+    "EIA_Energy_Production": {
+      "prepared_series_sha256_prefix": "1d54c09f"
+    },
+    "FAO_Food_Price": {
+      "prepared_series_sha256_prefix": "f6f74d16"
+    }
+  },
+  "environment": {
+    "approved_spec_file": "environment/approved_environment.yaml",
+    "requirements_file": "requirements.txt",
+    "pyproject_file": "pyproject.toml"
+  }
+}

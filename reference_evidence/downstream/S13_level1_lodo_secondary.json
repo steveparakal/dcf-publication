@@ -1,0 +1,141 @@
+{
+  "object": "Table S13 bounded reconstruction",
+  "dataset_order": [
+    "Beijing_PM25",
+    "Bike_Sharing",
+    "CPIAUCSL",
+    "EIA_Energy_Production",
+    "EUR_USD",
+    "FAO_Food_Price",
+    "INDPRO",
+    "Jena_Climate",
+    "SP500",
+    "WTI"
+  ],
+  "dimension_order": [
+    "TSS",
+    "PSS",
+    "VS",
+    "SIS",
+    "PS",
+    "SS",
+    "TDS"
+  ],
+  "lodo_rho_matrix": {
+    "TSS": {
+      "Beijing_PM25": 0.7666666666666667,
+      "Bike_Sharing": 0.7833333333333333,
+      "CPIAUCSL": 0.7666666666666667,
+      "EIA_Energy_Production": 0.8666666666666667,
+      "EUR_USD": 0.8666666666666667,
+      "FAO_Food_Price": 0.8833333333333333,
+      "INDPRO": 0.7666666666666667,
+      "Jena_Climate": 0.7833333333333333,
+      "SP500": 0.8333333333333333,
+      "WTI": 0.9333333333333332
+    },
+    "PSS": {
+      "Beijing_PM25": -0.5333333333333333,
+      "Bike_Sharing": -0.5166666666666667,
+      "CPIAUCSL": -0.39999999999999997,
+      "EIA_Energy_Production": -0.4666666666666666,
+      "EUR_USD": -0.45,
+      "FAO_Food_Price": -0.5166666666666667,
+      "INDPRO": -0.35,
+      "Jena_Climate": -0.5166666666666667,
+      "SP500": -0.48333333333333334,
+      "WTI": -0.7333333333333334
+    },
+    "VS": {
+      "Beijing_PM25": -0.7666666666666667,
+      "Bike_Sharing": -0.7833333333333333,
+      "CPIAUCSL": -0.7666666666666667,
+      "EIA_Energy_Production": -0.8666666666666667,
+      "EUR_USD": -0.8666666666666667,
+      "FAO_Food_Price": -0.8833333333333333,
+      "INDPRO": -0.7666666666666667,
+      "Jena_Climate": -0.7833333333333333,
+      "SP500": -0.8333333333333333,
+      "WTI": -0.9333333333333332
+    },
+    "SIS": {
+      "Beijing_PM25": -0.7,
+      "Bike_Sharing": -0.7833333333333333,
+      "CPIAUCSL": -0.7,
+      "EIA_Energy_Production": -0.8666666666666667,
+      "EUR_USD": -0.8499999999999999,
+      "FAO_Food_Price": -0.8166666666666667,
+      "INDPRO": -0.7,
+      "Jena_Climate": -0.8333333333333333,
+      "SP500": -0.7333333333333334,
+      "WTI": -0.7833333333333333
+    },
+    "PS": {
+      "Beijing_PM25": 0.5833333333333334,
+      "Bike_Sharing": 0.6166666666666666,
+      "CPIAUCSL": 0.7333333333333334,
+      "EIA_Energy_Production": 0.6166666666666666,
+      "EUR_USD": 0.8333333333333333,
+      "FAO_Food_Price": 0.7,
+      "INDPRO": 0.7,
+      "Jena_Climate": 0.6333333333333333,
+      "SP500": 0.75,
+      "WTI": 0.7333333333333334
+    },
+    "SS": {
+      "Beijing_PM25": -0.5477225575051661,
+      "Bike_Sharing": -0.7245688373094719,
+      "CPIAUCSL": -0.7245688373094719,
+      "EIA_Energy_Production": -0.7245688373094719,
+      "EUR_USD": -0.7245688373094719,
+      "FAO_Food_Price": -0.7245688373094719,
+      "INDPRO": -0.7245688373094719,
+      "Jena_Climate": -0.5477225575051661,
+      "SP500": -0.7245688373094719,
+      "WTI": -0.7245688373094719
+    },
+    "TDS": {
+      "Beijing_PM25": 0.6166666666666666,
+      "Bike_Sharing": 0.6333333333333333,
+      "CPIAUCSL": 0.7666666666666667,
+      "EIA_Energy_Production": 0.6166666666666666,
+      "EUR_USD": 0.8666666666666667,
+      "FAO_Food_Price": 0.7333333333333334,
+      "INDPRO": 0.7333333333333334,
+      "Jena_Climate": 0.6333333333333333,
+      "SP500": 0.7833333333333333,
+      "WTI": 0.7666666666666667
+    }
+  },
+  "secondary_best_log_relative_rmse_by_dataset": {
+    "Beijing_PM25": -0.4342943472767433,
+    "Bike_Sharing": -0.17268649742628023,
+    "CPIAUCSL": -0.3059081207878702,
+    "EIA_Energy_Production": -0.4175748342395532,
+    "EUR_USD": -0.00646774055250761,
+    "FAO_Food_Price": -0.015469846597349656,
+    "INDPRO": -0.05228361515122522,
+    "Jena_Climate": -0.22898594739137035,
+    "SP500": -0.025811366696851624,
+    "WTI": -0.004268905197734779
+  },
+  "secondary_spearman_by_dimension": {
+    "TSS": 0.18787878787878787,
+    "PSS": -0.2121212121212121,
+    "VS": -0.18787878787878787,
+    "SIS": 0.0303030303030303,
+    "PS": 0.6,
+    "SS": -0.5222329678670934,
+    "TDS": 0.5757575757575757
+  },
+  "strong_finding_secondary_checks": {
+    "TSS": {
+      "rho": 0.18787878787878787,
+      "same_sign": true
+    },
+    "VS": {
+      "rho": -0.18787878787878787,
+      "same_sign": true
+    }
+  }
+}

@@ -1,0 +1,255 @@
+publication_release_id: v1.2.0-rc20
+dcf_version: 1.2.0
+config_description: DCF final ten-dataset publication configuration
+status: FROZEN_APPROVED
+version: 1.2.0-publication
+datasets:
+- CPIAUCSL
+- INDPRO
+- WTI
+- Jena_Climate
+- Beijing_PM25
+- SP500
+- EUR_USD
+- Bike_Sharing
+- EIA_Energy_Production
+- FAO_Food_Price
+random_seed: 42
+torch_deterministic: true
+numpy_seed: 42
+train_fraction: 0.7
+models:
+- naive
+- seasonal_naive
+- drift
+- arima
+- sarima
+- ets
+- random_forest
+- xgboost
+- svr
+- lstm
+- gru
+- tcn
+approved_environment_spec: environment/approved_environment.yaml
+python_version_prefix: '3.12'
+python_architecture: x86_64
+publication_evidence_dir: publication_results
+reproduction_output_base: reproduction_runs
+reproducibility:
+  global_random_seed: 42
+  torch_deterministic_algorithms: true
+data_preparation:
+  minimum_observations_required: 50
+  missing_value_handling:
+    max_consecutive_gap_to_interpolate: 5
+  outlier_handling:
+    iqr_multiplier: 1.5
+  rolling_origin:
+    max_origins_per_dataset: 30
+    initial_train_fraction: 0.7
+    minimum_origins_required: 5
+    window_type: expanding
+evaluation:
+  rolling_origin:
+    max_origins_per_dataset: 30
+    initial_train_fraction: 0.7
+    minimum_origins_required: 5
+    window_type: expanding
+forecast_horizons:
+  official_by_frequency:
+    daily: 7
+    monthly: 12
+    business_day: 5
+stl:
+  robust: true
+  seasonal_smoother_length: null
+  trend_smoother_length: null
+  default_periods_by_frequency:
+    daily: 7
+    monthly: 12
+    business_day: 5
+domain_profile:
+  vector_order:
+  - TSS
+  - PSS
+  - VS
+  - SIS
+  - PS
+  - SS
+  - TDS
+characterization:
+  label_thresholds:
+    low_high_cut: 0.33
+    high_medium_cut: 0.66
+  structural_change:
+    pelt_penalty: 10.0
+    cost_model: l2
+    min_segment_size: 10
+    change_magnitude_definition: mean_and_variance_shift
+    change_magnitude_weights:
+      mean_shift_weight: 0.5
+      variance_shift_weight: 0.5
+  stationarity_score:
+    adf_alpha: 0.05
+    adf_autolag: AIC
+    adf_regression: c
+  temporal_dependence_score:
+    lag_set:
+    - 2
+    - 3
+    - 4
+    - 5
+forecasting:
+  models:
+    naive:
+      enabled: true
+    seasonal_naive:
+      enabled: true
+    drift:
+      enabled: true
+    arima:
+      enabled: true
+      auto_arima_settings:
+        start_p: 0
+        start_q: 0
+        max_p: 5
+        max_q: 5
+        max_d: 2
+        seasonal: false
+        information_criterion: aic
+        stepwise: true
+        suppress_warnings: true
+    sarima:
+      enabled: true
+      auto_arima_settings:
+        start_p: 0
+        start_q: 0
+        max_p: 5
+        max_q: 5
+        max_d: 2
+        seasonal: true
+        max_P: 2
+        max_Q: 2
+        max_D: 1
+        information_criterion: aic
+        stepwise: true
+        suppress_warnings: true
+    ets:
+      enabled: true
+      damped_trend_candidates:
+      - true
+      - false
+    random_forest:
+      enabled: true
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 2
+      n_jobs: 1
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+    xgboost:
+      enabled: true
+      n_estimators: 300
+      max_depth: 6
+      learning_rate: 0.05
+      subsample: 0.9
+      colsample_bytree: 0.9
+      n_jobs: 1
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+    svr:
+      enabled: true
+      kernel: rbf
+      C: 10.0
+      epsilon: 0.1
+      gamma: scale
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+      feature_scaling: standard
+    lstm:
+      enabled: true
+      input_window: 24
+      hidden_size: 64
+      num_layers: 2
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+    gru:
+      enabled: true
+      input_window: 24
+      hidden_size: 64
+      num_layers: 2
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+    tcn:
+      enabled: true
+      input_window: 24
+      num_channels:
+      - 32
+      - 32
+      - 32
+      - 32
+      kernel_size: 3
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+evaluation_metrics:
+  ranking_metric: RMSE
+forecasting_behavior:
+  difficulty_thresholds:
+    easy_max_ratio: 0.5
+    moderate_max_ratio: 0.9
+  ranking_stability_threshold:
+    stable_max_ratio: 2.0
+evidence_classification:
+  novelty_1_characterization_layer:
+    supported:
+      min_abs_correlation: 0.5
+      min_datasets_meeting_threshold: 5
+      requires_consistent_sign: true
+    partially_supported:
+      min_abs_correlation: 0.3
+      min_datasets_meeting_threshold: 4
+  novelty_2_domain_profile:
+    supported:
+      min_spearman_r: 0.4
+relationship_discovery:
+  correlation_strength_cuts:
+    weak: 0.3
+    moderate: 0.5
+    strong: 0.7

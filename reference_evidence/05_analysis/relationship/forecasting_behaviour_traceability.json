@@ -1,0 +1,279 @@
+{
+  "traceability_artifact": true,
+  "dataset_ids": [
+    "Beijing_PM25",
+    "Bike_Sharing",
+    "CPIAUCSL",
+    "EIA_Energy_Production",
+    "EUR_USD",
+    "FAO_Food_Price",
+    "INDPRO",
+    "Jena_Climate",
+    "SP500",
+    "WTI"
+  ],
+  "formal_outputs_linked": [
+    {
+      "filename": "relationship_analysis.json",
+      "sha256": "d56bd88ec4d615632210cc34bdac68da25b0bf789a1febf66004f87f20d4a385"
+    }
+  ],
+  "gate_summary": {
+    "gate_records": [
+      {
+        "dataset_id": "Beijing_PM25",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "Bike_Sharing",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "CPIAUCSL",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "EIA_Energy_Production",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "EUR_USD",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "FAO_Food_Price",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "INDPRO",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "Jena_Climate",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "SP500",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      },
+      {
+        "dataset_id": "WTI",
+        "gate_id": "completion_epsilon_rmse_fixed_model_set",
+        "passed": true,
+        "failure_reason": null
+      }
+    ],
+    "eligible_dataset_ids": [
+      "Beijing_PM25",
+      "Bike_Sharing",
+      "CPIAUCSL",
+      "EIA_Energy_Production",
+      "EUR_USD",
+      "FAO_Food_Price",
+      "INDPRO",
+      "Jena_Climate",
+      "SP500",
+      "WTI"
+    ],
+    "excluded_dataset_ids": []
+  },
+  "b_i_by_dataset": {
+    "Beijing_PM25": -0.39530008206428513,
+    "Bike_Sharing": -0.1394668842995351,
+    "CPIAUCSL": 0.15812885495319517,
+    "EIA_Energy_Production": -0.0824840706104365,
+    "EUR_USD": 0.017298829546931013,
+    "FAO_Food_Price": 0.11994993661740339,
+    "INDPRO": 0.1578405348127852,
+    "Jena_Climate": -0.15721730902165015,
+    "SP500": 0.13842827627074183,
+    "WTI": 0.14993880355015918
+  },
+  "z_im_by_dataset": {
+    "Beijing_PM25": [
+      0.10449860201766627,
+      0.0029396679573973055,
+      -0.40070785734114234,
+      -0.42188203111678085,
+      -0.348321387229502,
+      -0.3922624779410043,
+      -0.3431734653818538,
+      -0.4151313286099282,
+      -0.39530008206428513,
+      -0.398990044301676,
+      -0.4342943472767433
+    ],
+    "Bike_Sharing": [
+      0.03868164539196601,
+      0.004612067761725096,
+      -0.1394668842995351,
+      -0.14663245627848584,
+      -0.17250275888052902,
+      -0.1715589777604544,
+      -0.14559914365625037,
+      0.2983858722328614,
+      1.3930938448448584,
+      1.3933720681404385,
+      -0.17268649742628023
+    ],
+    "CPIAUCSL": [
+      0.46844326422685184,
+      -0.3059081207878702,
+      -0.21384876723026783,
+      -0.17730963362722713,
+      -0.13084515705191685,
+      0.15812885495319517,
+      0.13624090361220012,
+      1.1382308328921205,
+      3.337117655717089,
+      3.306492881808413,
+      0.1722293534915704
+    ],
+    "EIA_Energy_Production": [
+      -0.04586271379531862,
+      -0.03680562420288474,
+      -0.0824840706104365,
+      -0.31590138853036354,
+      -0.4175748342395532,
+      -0.11500335715487327,
+      -0.09492493577699512,
+      -0.10012745765577508,
+      1.4120745189538229,
+      1.4532246007436096,
+      0.16460853912188797
+    ],
+    "EUR_USD": [
+      0.36897603754967556,
+      0.001578443856844246,
+      0.0,
+      -0.00646774055250761,
+      0.0019920764930969107,
+      0.03191819616383084,
+      0.004704436287906227,
+      2.3828282787410013,
+      0.21215086075080344,
+      0.017298829546931013,
+      1.0269088720431212
+    ],
+    "FAO_Food_Price": [
+      0.3094697301995702,
+      -0.010440890785535808,
+      -0.015469846597349656,
+      0.013442580075439796,
+      0.03191772366764519,
+      0.11994993661740339,
+      0.087517657289118,
+      0.33460764029194734,
+      1.682737286836355,
+      1.7043977102177035,
+      0.7622235147466042
+    ],
+    "INDPRO": [
+      0.4258579308502399,
+      -0.016737446997961442,
+      -0.05228361515122522,
+      -0.0342098181865485,
+      -0.043102384167055814,
+      0.059190825114733225,
+      0.1578405348127852,
+      0.2926902769464462,
+      2.0301946184195216,
+      2.0579251304741457,
+      0.49967293462313445
+    ],
+    "Jena_Climate": [
+      0.1308418470351362,
+      0.001034863686243804,
+      -0.22265855085818456,
+      -0.22504315304880224,
+      0.005357479148344432,
+      -0.17962726347954983,
+      -0.15721730902165015,
+      -0.12401095042697814,
+      -0.04773922266661938,
+      -0.20474243366722408,
+      -0.22898594739137035
+    ],
+    "SP500": [
+      0.13842827627074183,
+      -0.015074430173141015,
+      -0.024066975444905978,
+      -0.025811366696851624,
+      -0.011530997856035648,
+      0.07630761141967624,
+      0.18732251027188448,
+      2.1874472293897487,
+      4.089585988343647,
+      4.08992304903083,
+      0.7080547939583162
+    ],
+    "WTI": [
+      0.3455433330275598,
+      0.007524167476836493,
+      0.06541048889417203,
+      0.10130012217843473,
+      0.21994603776825902,
+      -0.004268905197734779,
+      0.0736051737561096,
+      0.14993880355015918,
+      0.6671956222983487,
+      0.6543918455448612,
+      0.20143941611220487
+    ]
+  },
+  "naive_rmse_by_dataset": {
+    "Beijing_PM25": 100.81925901207266,
+    "Bike_Sharing": 1552.795040594617,
+    "CPIAUCSL": 4.850301753275367,
+    "EIA_Energy_Production": 0.43584724003508746,
+    "EUR_USD": 0.006659494475308684,
+    "FAO_Food_Price": 10.617483077202797,
+    "INDPRO": 2.7855648004489146,
+    "Jena_Climate": 4.596876115333008,
+    "SP500": 92.81908340063127,
+    "WTI": 16.35418671973293
+  },
+  "epsilon_i_by_dataset": {
+    "Beijing_PM25": 1.2599180957787817e-13,
+    "Bike_Sharing": 1.934896687316723e-12,
+    "CPIAUCSL": 7.380918098931488e-14,
+    "EIA_Energy_Production": 2.06472172692429e-15,
+    "EUR_USD": 3.554934124849751e-16,
+    "FAO_Food_Price": 3.557697573480218e-14,
+    "INDPRO": 2.3114932190537728e-14,
+    "Jena_Climate": 6.52263736849395e-15,
+    "SP500": 1.6897105936664047e-12,
+    "WTI": 2.9738433937609445e-14
+  },
+  "canonical_model_order": [
+    "seasonal_naive",
+    "drift",
+    "arima",
+    "sarima",
+    "ets",
+    "random_forest",
+    "xgboost",
+    "svr",
+    "lstm",
+    "gru",
+    "tcn"
+  ]
+}

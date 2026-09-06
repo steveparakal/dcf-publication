@@ -1,0 +1,92 @@
+{
+  "CPIAUCSL": {
+    "status": "READY",
+    "raw_path": "data/raw/CPIAUCSL/CPIAUCSL.raw.csv",
+    "source_sha256": "b7307e8875a824244ee6eb088020cac62f06d07900e74278d398abb947d4434f",
+    "canonical_sha256": null,
+    "prepared_sha256": "41da299404c177ef7ce85428971e2342fdec7cc50f80001e26a29be5a81039e0",
+    "accepted_prepared_sha256": "41da299404c177ef7ce85428971e2342fdec7cc50f80001e26a29be5a81039e0",
+    "prepared_sha_match": true
+  },
+  "INDPRO": {
+    "status": "READY",
+    "raw_path": "data/raw/INDPRO/INDPRO.raw.csv",
+    "source_sha256": "11f60f0c91cd01a3b08f43ae81346755240456af027f8afcb83c0622820e786b",
+    "canonical_sha256": null,
+    "prepared_sha256": "b47c3667d421ac110c783d92f5017a705d7679b18dedac7ba429917992692986",
+    "accepted_prepared_sha256": "b47c3667d421ac110c783d92f5017a705d7679b18dedac7ba429917992692986",
+    "prepared_sha_match": true
+  },
+  "WTI": {
+    "status": "READY",
+    "raw_path": "data/raw/WTI/WTI.raw.csv",
+    "source_sha256": "b074871ad31530429c19bdb27c1b77299bdf1f4ff65e7364c57ee735c6254b64",
+    "canonical_sha256": null,
+    "prepared_sha256": "52bf3396665be6100bc47488ca395c5f3676b85b50ea549b40f341f90a02b57b",
+    "accepted_prepared_sha256": "52bf3396665be6100bc47488ca395c5f3676b85b50ea549b40f341f90a02b57b",
+    "prepared_sha_match": true
+  },
+  "Jena_Climate": {
+    "status": "READY",
+    "raw_path": "data/raw/Jena_Climate/jena_climate_2009_2016.csv",
+    "source_sha256": "9626d3964f7afb3fa94b6f3d3a0e92fe96e4a4477c31ed9875cc64d6717c129f",
+    "canonical_sha256": "9626d3964f7afb3fa94b6f3d3a0e92fe96e4a4477c31ed9875cc64d6717c129f",
+    "prepared_sha256": "31579b38f75a5e7381699992ab18a681af8e663ba1bc7cf6273f9a9dc21a06dd",
+    "accepted_prepared_sha256": "31579b38f75a5e7381699992ab18a681af8e663ba1bc7cf6273f9a9dc21a06dd",
+    "prepared_sha_match": true
+  },
+  "Beijing_PM25": {
+    "status": "READY",
+    "raw_path": "data/raw/Beijing_PM25/Beijing_PM25_daily.csv",
+    "source_sha256": "00fae5a58f019c223abc96d1baae69db2b779ee918c2a78666688db98a784e13",
+    "canonical_sha256": "00fae5a58f019c223abc96d1baae69db2b779ee918c2a78666688db98a784e13",
+    "prepared_sha256": "86d70852d1f003a356f2cc21e969ebfd03e1a87d39db7d689965494a1010da91",
+    "accepted_prepared_sha256": "86d70852d1f003a356f2cc21e969ebfd03e1a87d39db7d689965494a1010da91",
+    "prepared_sha_match": true
+  },
+  "SP500": {
+    "status": "READY",
+    "raw_path": "data/raw/SP500/SP500.csv",
+    "source_sha256": "921070789b889b2565a3a9a363cc856d22f637e32e6ae5a93ed727620862966f",
+    "canonical_sha256": null,
+    "prepared_sha256": "97981d46c39d451ade4ca6214119aae5b0f34fd31b3e71fe7568a44dcc57b619",
+    "accepted_prepared_sha256": "97981d46c39d451ade4ca6214119aae5b0f34fd31b3e71fe7568a44dcc57b619",
+    "prepared_sha_match": true
+  },
+  "EUR_USD": {
+    "status": "READY",
+    "raw_path": "data/raw/EUR_USD/EUR_USD.csv",
+    "source_sha256": "fe678549c5154ff74e291112ee69cc0a5fc7fd8407648c2d58492aed9acfb5f3",
+    "canonical_sha256": null,
+    "prepared_sha256": "4a340c9ec574f69b6cae1391e032c0afba6a02f39610c8e167eaf87a92686fb1",
+    "accepted_prepared_sha256": "4a340c9ec574f69b6cae1391e032c0afba6a02f39610c8e167eaf87a92686fb1",
+    "prepared_sha_match": true
+  },
+  "Bike_Sharing": {
+    "status": "READY",
+    "raw_path": "data/raw/Bike_Sharing/day.csv",
+    "source_sha256": "a6bcf826782d3c0fbfdcbeead17cd0884185a0dafe8ff10cd48a874ee7ba18be",
+    "canonical_sha256": "a6bcf826782d3c0fbfdcbeead17cd0884185a0dafe8ff10cd48a874ee7ba18be",
+    "prepared_sha256": "0b60cbf938867885644f9c0f461b7036ce665bcab33b7fddd1b3a71c5985b366",
+    "accepted_prepared_sha256": "0b60cbf938867885644f9c0f461b7036ce665bcab33b7fddd1b3a71c5985b366",
+    "prepared_sha_match": true
+  },
+  "EIA_Energy_Production": {
+    "status": "READY",
+    "raw_path": "data/raw/EIA_Energy_Production/EIA_T01_02_Primary_Energy_Production.csv",
+    "source_sha256": "aefb5efbcc08c17d9ab42d6f75228d5f02e61a2eb1b62ff0cdcd32a6f23ffa66",
+    "canonical_sha256": "aefb5efbcc08c17d9ab42d6f75228d5f02e61a2eb1b62ff0cdcd32a6f23ffa66",
+    "prepared_sha256": "1d54c09f8151edaff4693f510185395ab45315289cd0b40e9f3b5f2f12608485",
+    "accepted_prepared_sha256": "1d54c09f8151edaff4693f510185395ab45315289cd0b40e9f3b5f2f12608485",
+    "prepared_sha_match": true
+  },
+  "FAO_Food_Price": {
+    "status": "READY",
+    "raw_path": "data/raw/FAO_Food_Price/FAO_Food_Price_Index.xlsx",
+    "source_sha256": "75f93e7332221989f5a00eb8fe8cfa9a6cb0970b5c9a998f53587be1098d24be",
+    "canonical_sha256": "75f93e7332221989f5a00eb8fe8cfa9a6cb0970b5c9a998f53587be1098d24be",
+    "prepared_sha256": "f6f74d1698c3fff962ce5f3d425b926936fbeb9e6524f78e867cccd489dee46d",
+    "accepted_prepared_sha256": "f6f74d1698c3fff962ce5f3d425b926936fbeb9e6524f78e867cccd489dee46d",
+    "prepared_sha_match": true
+  }
+}

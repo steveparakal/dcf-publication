@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "qualified_inputs": {
+    "publication_software_sha256": "694464fe2bfed93b7ec57c3cc04bf9ad09f4770e788e42cc6ca193812b71591a",
+    "ten_dataset_input_bundle_sha256": "6aaaa082dc0990026addf4809024abc578076b59a3604de7e15270e73f9a413b",
+    "successful_execution_archive_sha256": "b048617eecc828166c45026b0d5016b197ad8aa48a49b0d21bd165a823863b65"
+  },
+  "execution": {
+    "environment_preflight": "PASS",
+    "prepared_series_identity_gate": "10/10 VERIFIED",
+    "datasets": 10,
+    "models": 12,
+    "pipeline_stages": "1-9 complete",
+    "final_evidence_files": 146,
+    "missing_repositories": 0,
+    "level_1_final_state": "Partially Supported",
+    "level_2_primary_final_state": "Unsupported"
+  },
+  "core_reference_equivalence": {
+    "domain_profile_json_files_exact": 10,
+    "model_evaluation_json_files_exact": 10,
+    "forecasting_behaviour_traceability_exact": true,
+    "relationship_analysis_exact": true,
+    "evidence_validation_exact": true
+  },
+  "downstream_publication_reproduction": {
+    "status": "PASS",
+    "S1": "Inconclusive",
+    "S2": "Supported",
+    "S3": "Supported",
+    "S4": "Supported",
+    "S5": {
+      "Unsupported": 10,
+      "Inconclusive": 1
+    },
+    "S6": {
+      "Unsupported": 6,
+      "Inconclusive": 4,
+      "primary_exact_state_preserved": 6,
+      "n_total": 10
+    },
+    "S7": "Diagnostic only"
+  },
+  "note": "This GitHub-facing release preserves the qualified scientific logic, publication configuration, and compact reference evidence. Raw third-party datasets and machine-local execution logs/paths are not redistributed."
+}

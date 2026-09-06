@@ -1,0 +1,248 @@
+datasets:
+  CPIAUCSL:
+    reader_facing_name: CPI (All Urban Consumers, Seasonally Adjusted)
+    technical_id: CPIAUCSL
+    accepted_prepared_sha256: 41da299404c177ef7ce85428971e2342fdec7cc50f80001e26a29be5a81039e0
+    provider: U.S. Bureau of Labor Statistics via FRED
+    series_id: CPIAUCSL
+    canonical_source_url: https://fred.stlouisfed.org/series/CPIAUCSL
+    retrieval_url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL
+    target_variable: CPI index level
+    frequency: monthly
+    accepted_date_start: '1947-01-01'
+    accepted_date_end: '2026-04-01'
+    accepted_n: 952
+    raw_filename: CPIAUCSL.raw.csv
+    raw_path: data/raw/CPIAUCSL/CPIAUCSL.raw.csv
+    acquisition_method: auto_download
+    preparation_function: dcf.data_preparation.prepare_dataset('CPIAUCSL')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: Federal Reserve Bank of St. Louis, FRED series CPIAUCSL.
+  INDPRO:
+    reader_facing_name: Industrial Production Index
+    technical_id: INDPRO
+    accepted_prepared_sha256: b47c3667d421ac110c783d92f5017a705d7679b18dedac7ba429917992692986
+    provider: U.S. Federal Reserve via FRED
+    series_id: INDPRO
+    canonical_source_url: https://fred.stlouisfed.org/series/INDPRO
+    retrieval_url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=INDPRO
+    target_variable: Industrial production index
+    frequency: monthly
+    accepted_date_start: '1919-01-01'
+    accepted_date_end: '2026-05-01'
+    accepted_n: 1289
+    raw_filename: INDPRO.raw.csv
+    raw_path: data/raw/INDPRO/INDPRO.raw.csv
+    acquisition_method: auto_download
+    preparation_function: dcf.data_preparation.prepare_dataset('INDPRO')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: Federal Reserve Bank of St. Louis, FRED series INDPRO.
+  WTI:
+    reader_facing_name: WTI Crude Oil Price
+    technical_id: WTI
+    accepted_prepared_sha256: 52bf3396665be6100bc47488ca395c5f3676b85b50ea549b40f341f90a02b57b
+    provider: Federal Reserve Bank of St. Louis (FRED)
+    series_id: WTISPLC
+    series_note: 'WTISPLC is a FRED-constructed monthly series combining two EIA source
+      series. This is the accepted publication source. Do NOT substitute DCOILWTICO
+      (daily spot price) or any other series.
+
+      '
+    canonical_source_url: https://fred.stlouisfed.org/series/WTISPLC
+    retrieval_url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=WTISPLC
+    target_variable: WTI crude oil spot price (USD/barrel), monthly
+    frequency: monthly
+    accepted_date_start: '1946-01-01'
+    accepted_date_end: '2026-05-01'
+    accepted_n: 965
+    raw_filename: WTI.raw.csv
+    raw_path: data/raw/WTI/WTI.raw.csv
+    acquisition_method: auto_download
+    preparation_function: dcf.data_preparation.prepare_dataset('WTI')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: Federal Reserve Bank of St. Louis, FRED series WTISPLC.
+  Jena_Climate:
+    reader_facing_name: Jena Climate
+    technical_id: Jena_Climate
+    accepted_prepared_sha256: 31579b38f75a5e7381699992ab18a681af8e663ba1bc7cf6273f9a9dc21a06dd
+    provider: Max Planck Institute for Biogeochemistry, Jena
+    canonical_source_url: https://www.bgc-jena.mpg.de/wetter/
+    retrieval_url: https://storage.googleapis.com/tensorflow/tf-keras-datasets/jena_climate_2009_2016.csv.zip
+    target_variable: T (degC) — air temperature, daily mean resampled from 10-minute
+      raw
+    frequency: daily (resampled from 10-minute)
+    accepted_date_start: '2009-01-01'
+    accepted_date_end: '2017-01-01'
+    accepted_n: 2923
+    raw_filename: jena_climate_2009_2016.csv
+    raw_path: data/raw/Jena_Climate/jena_climate_2009_2016.csv
+    acquisition_method: manual
+    preparation_function: dcf.data_preparation.prepare_dataset('Jena_Climate')
+    redistribution_status: uncertain
+    raw_data_included_in_release: false
+    instructions: 'Download jena_climate_2009_2016.csv from the TensorFlow/Keras datasets
+      mirror at the retrieval_url above (ZIP file; extract the CSV). Place at data/raw/Jena_Climate/jena_climate_2009_2016.csv.
+      The preparation function resamples from 10-minute to daily mean internally.
+
+      '
+    attribution: Max Planck Institute for Biogeochemistry, Jena.
+  Beijing_PM25:
+    reader_facing_name: Beijing PM2.5
+    technical_id: Beijing_PM25
+    accepted_prepared_sha256: 86d70852d1f003a356f2cc21e969ebfd03e1a87d39db7d689965494a1010da91
+    provider: 'UCI Machine Learning Repository #501 (Zhang et al., 2017)'
+    canonical_source_url: https://archive.ics.uci.edu/dataset/501
+    target_variable: PM2.5_daily_mean_Dongsi — Dongsi station daily mean PM2.5 (µg/m³)
+    station: Dongsi
+    frequency: daily
+    accepted_date_start: '2013-03-01'
+    accepted_date_end: '2017-02-28'
+    accepted_n: 1461
+    source_note: 'The accepted publication dataset is the Beijing Multi-Site Air-Quality
+      Data (UCI #501, Zhang et al. 2017), Dongsi station, daily mean PM2.5, 2013-03-01
+      to 2017-02-28. Do NOT use UCI #381 (PRSA_data_2010.1.1-2014.12.31.csv), which
+      is a different dataset covering a different period. The accepted raw file is
+      the pre-aggregated daily CSV produced by scripts/preprocess_beijing_pm25.py
+      from the UCI #501 multi-site raw files.
+
+      '
+    raw_filename: Beijing_PM25_daily.csv
+    raw_path: data/raw/Beijing_PM25/Beijing_PM25_daily.csv
+    acquisition_method: manual_with_preprocessing
+    instructions: "1. Download the Beijing Multi-Site Air-Quality Data (UCI #501)\
+      \ from\n   https://archive.ics.uci.edu/dataset/501\n2. Extract the multi-station\
+      \ hourly CSV files. 3. Run: python scripts/preprocess_beijing_pm25.py\n   to\
+      \ produce the Dongsi daily mean series at data/raw/Beijing_PM25/Beijing_PM25_daily.csv\n\
+      4. Run: python -c \"from dcf.data_preparation import prepare_dataset; prepare_dataset('Beijing_PM25')\"\
+      \n"
+    preprocessing_script: scripts/preprocess_beijing_pm25.py
+    preparation_function: dcf.data_preparation.prepare_dataset('Beijing_PM25')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    leakage_disclosure: 'Two (origin, interpolated-position) pairs have bounded short-gap
+      interpolation where the right-hand source lies 1-2 days beyond the training
+      cutoff: origin 15 (2016-07-28 cutoff, right-source 2016-07-30) and origin 28
+      (2017-02-02 cutoff, right-source 2017-02-03). Disclosed in manuscript Sections
+      4.3 and 4.6.
+
+      '
+    attribution: 'Zhang, S. et al. (2017). Beijing Multi-Site Air-Quality Data. UCI
+      #501.'
+  SP500:
+    reader_facing_name: S&P 500
+    technical_id: SP500
+    accepted_prepared_sha256: 97981d46c39d451ade4ca6214119aae5b0f34fd31b3e71fe7568a44dcc57b619
+    provider: S&P Dow Jones Indices via FRED
+    series_id: SP500
+    series_note: 'The accepted publication source is FRED series SP500 (S&P Dow Jones
+      Indices via Federal Reserve Bank of St. Louis), business-day closing prices,
+      2016-07-25 to 2026-07-24. Do NOT use Yahoo Finance yfinance download or any
+      other source/window; the accepted prepared series has n=2514 business-day observations
+      on the above window.
+
+      '
+    canonical_source_url: https://fred.stlouisfed.org/series/SP500
+    retrieval_url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500
+    target_variable: S&P 500 daily closing price
+    frequency: business_day
+    accepted_date_start: '2016-07-25'
+    accepted_date_end: '2026-07-24'
+    accepted_n: 2514
+    raw_filename: SP500.csv
+    raw_path: data/raw/SP500/SP500.csv
+    acquisition_method: auto_download
+    preparation_function: dcf.data_preparation.prepare_dataset('SP500')
+    redistribution_status: not_permitted
+    raw_data_included_in_release: false
+    attribution: S&P Dow Jones Indices LLC, retrieved from FRED series SP500.
+  EUR_USD:
+    reader_facing_name: EUR/USD Exchange Rate
+    technical_id: EUR_USD
+    accepted_prepared_sha256: 4a340c9ec574f69b6cae1391e032c0afba6a02f39610c8e167eaf87a92686fb1
+    provider: Federal Reserve Board via FRED
+    series_id: DEXUSEU
+    canonical_source_url: https://fred.stlouisfed.org/series/DEXUSEU
+    retrieval_url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSEU
+    target_variable: EUR/USD daily exchange rate
+    frequency: business_day
+    accepted_date_start: '1999-01-04'
+    accepted_date_end: '2026-07-17'
+    accepted_n: 6906
+    raw_filename: EUR_USD.csv
+    raw_path: data/raw/EUR_USD/EUR_USD.csv
+    acquisition_method: auto_download
+    preparation_function: dcf.data_preparation.prepare_dataset('EUR_USD')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: Federal Reserve Board, retrieved from FRED series DEXUSEU.
+  Bike_Sharing:
+    reader_facing_name: Bike Sharing
+    technical_id: Bike_Sharing
+    accepted_prepared_sha256: 0b60cbf938867885644f9c0f461b7036ce665bcab33b7fddd1b3a71c5985b366
+    provider: 'UCI Machine Learning Repository #275 (Fanaee-T & Gama, 2014)'
+    canonical_source_url: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
+    target_variable: cnt — daily total rental count
+    frequency: daily
+    accepted_date_start: '2011-01-01'
+    accepted_date_end: '2012-12-31'
+    accepted_n: 731
+    raw_filename: day.csv
+    raw_path: data/raw/Bike_Sharing/day.csv
+    acquisition_method: manual
+    instructions: 'Download the Bike Sharing Dataset from UCI #275. Extract day.csv
+      and place at data/raw/Bike_Sharing/day.csv.
+
+      '
+    preparation_function: dcf.data_preparation.prepare_dataset('Bike_Sharing')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: 'Fanaee-T, H. & Gama, J. (2014). UCI ML Repository #275.'
+  EIA_Energy_Production:
+    reader_facing_name: EIA Energy Production
+    technical_id: EIA_Energy_Production
+    accepted_prepared_sha256: 1d54c09f8151edaff4693f510185395ab45315289cd0b40e9f3b5f2f12608485
+    provider: U.S. Energy Information Administration, Monthly Energy Review
+    canonical_source_url: https://www.eia.gov/totalenergy/data/monthly/
+    target_variable: TEPRBUS — Total Primary Energy Production (quadrillion BTU),
+      monthly
+    frequency: monthly
+    accepted_date_start: '1973-01-01'
+    accepted_date_end: '2026-04-01'
+    accepted_n: 640
+    raw_filename: EIA_T01_02_Primary_Energy_Production.csv
+    raw_path: data/raw/EIA_Energy_Production/EIA_T01_02_Primary_Energy_Production.csv
+    acquisition_method: manual
+    instructions: 'Download Table 1.2 from EIA Monthly Energy Review (CSV/bulk download).
+      Place at data/raw/EIA_Energy_Production/EIA_T01_02_Primary_Energy_Production.csv.
+
+      '
+    preparation_function: dcf.data_preparation.prepare_dataset('EIA_Energy_Production')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: U.S. EIA Monthly Energy Review, Table 1.2.
+  FAO_Food_Price:
+    reader_facing_name: FAO Food Price
+    technical_id: FAO_Food_Price
+    accepted_prepared_sha256: f6f74d1698c3fff962ce5f3d425b926936fbeb9e6524f78e867cccd489dee46d
+    provider: Food and Agriculture Organization of the United Nations (FAO)
+    canonical_source_url: https://www.fao.org/worldfoodsituation/foodpricesindex/en/
+    target_variable: FAO Food Price Index (monthly)
+    frequency: monthly
+    accepted_date_start: '1990-01-01'
+    accepted_date_end: '2026-07-01'
+    accepted_n: 439
+    raw_filename: FAO_Food_Price_Index.xlsx
+    raw_path: data/raw/FAO_Food_Price/FAO_Food_Price_Index.xlsx
+    acquisition_method: manual
+    instructions: 'Download the FAO Food Price Index Excel from the canonical URL.
+      Place at data/raw/FAO_Food_Price/FAO_Food_Price_Index.xlsx.
+
+      '
+    preparation_function: dcf.data_preparation.prepare_dataset('FAO_Food_Price')
+    redistribution_status: permitted
+    raw_data_included_in_release: false
+    attribution: Food and Agriculture Organization of the United Nations. FAO Food
+      Price Index.

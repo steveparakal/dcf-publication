@@ -1,0 +1,35 @@
+{
+  "purpose": "Reference execution for the publication reproducibility package",
+  "publication_release_id": "v1.2.0-rc20",
+  "datasets_ordered": [
+    "CPIAUCSL",
+    "INDPRO",
+    "WTI",
+    "Jena_Climate",
+    "Beijing_PM25",
+    "SP500",
+    "EUR_USD",
+    "Bike_Sharing",
+    "EIA_Energy_Production",
+    "FAO_Food_Price"
+  ],
+  "model_order": [
+    "naive",
+    "seasonal_naive",
+    "drift",
+    "arima",
+    "sarima",
+    "ets",
+    "random_forest",
+    "xgboost",
+    "svr",
+    "lstm",
+    "gru",
+    "tcn"
+  ],
+  "random_seed": 42,
+  "config_file": "configs/publication.yaml",
+  "stage_1_to_9_status": "PASS",
+  "level_1_final_state": "Partially Supported",
+  "level_2_primary_final_state": "Unsupported"
+}

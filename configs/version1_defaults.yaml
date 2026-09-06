@@ -1,0 +1,422 @@
+version: 1.2.0-publication
+status: FROZEN_APPROVED
+publication_datasets:
+- CPIAUCSL
+- INDPRO
+- WTI
+- Jena_Climate
+- ECL
+- Solar_Energy
+- ETTh1
+- Beijing_PM25
+- SP500
+- EUR_USD
+reproducibility:
+  global_random_seed: 42
+  torch_deterministic_algorithms: true
+  numpy_print_precision: 6
+numerics:
+  variance_ddof: 0
+  floating_point_precision: float64
+  zero_division_fallback: 0.0
+  near_zero_epsilon: 1.0e-08
+characterization:
+  persistence_score:
+    lag: 1
+  temporal_dependence_score:
+    lag_set:
+    - 2
+    - 3
+    - 4
+    - 5
+  trend_strength:
+    formula: Var(T) / (Var(T) + Var(R))
+  pattern_strength:
+    formula: Var(S) / (Var(S) + Var(R))
+  volatility_score:
+    formula: Var(R) / (Var(T) + Var(S) + Var(R))
+  stationarity_score:
+    test: augmented_dickey_fuller
+    adf_alpha: 0.05
+    adf_autolag: AIC
+    adf_regression: c
+  structural_change:
+    detection_method: PELT
+    cost_model: l2
+    pelt_penalty: 10.0
+    pelt_penalty_sensitivity_sweep:
+    - 5.0
+    - 10.0
+    - 20.0
+    - 50.0
+    min_segment_size: 10
+    change_magnitude_definition: mean_and_variance_shift
+    change_magnitude_weights:
+      mean_shift_weight: 0.5
+      variance_shift_weight: 0.5
+    sis_aggregation: mean_of_acm_norm_mcm_norm_rcd
+    normalization_scale: range
+  label_thresholds:
+    low_high_cut: 0.33
+    high_medium_cut: 0.66
+domain_profile:
+  vector_order:
+  - TSS
+  - PSS
+  - VS
+  - SIS
+  - PS
+  - SS
+  - TDS
+  multivariate_scope: single_target_series
+stl:
+  default_periods_by_frequency:
+    yearly: 1
+    quarterly: 4
+    monthly: 12
+    weekly: 52
+    daily: 7
+    business_day: 5
+    hourly: 24
+    10min: 144
+    15min: 96
+  robust: true
+  seasonal_smoother_length: null
+  trend_smoother_length: null
+frequency_policy:
+  preserve_native_frequency: true
+  computational_budget_guard:
+    enabled: true
+    max_wall_clock_minutes_per_dataset_model: 240
+  fallback_resampling_aggregation: mean
+data_preparation:
+  missing_value_handling:
+    method: linear_interpolation
+    max_consecutive_gap_to_interpolate: 5
+    available_methods:
+    - linear_interpolation
+    - forward_fill
+    - drop
+  outlier_handling:
+    detection_method: iqr
+    iqr_multiplier: 1.5
+    action: report_only
+    available_actions:
+    - report_only
+    - cap
+    - remove
+  minimum_observations_required: 50
+evaluation:
+  primary_protocol: rolling_origin
+  rolling_origin:
+    window_type: expanding
+    initial_train_fraction: 0.7
+    step_size: equal_to_horizon
+    minimum_origins_required: 5
+    max_origins_per_dataset: 30
+    forecast_type: multi_step
+  secondary_protocols_supported:
+  - fixed_train_test_split
+  - last_h_holdout
+  fixed_train_test_split_fraction: 0.8
+  consistency_requirement: true
+forecast_horizons:
+  official_by_frequency:
+    monthly: 12
+    daily: 7
+    business_day: 5
+    hourly: 24
+  sensitivity_horizons:
+    monthly:
+    - 6
+    - 24
+    daily:
+    - 14
+    - 30
+    business_day:
+    - 10
+    - 20
+    hourly:
+    - 12
+    - 48
+target_variable_selection:
+  ECL:
+    target: avg_aggregate_hourly_load_kW
+    construction: '(1) Sum all 370 client columns at each 15-minute timestamp. (2)
+      Take the hourly mean of the summed 15-minute values. Result: average aggregate
+      hourly electricity load in kW. This is NOT the total energy per hour (kWh);
+      each reading is already a load value (kW), so the hourly mean preserves the
+      unit.
+
+      '
+    pipeline_input: ECL_hourly.csv
+    modelling_frequency: hourly
+    seasonal_period: 24
+    forecast_horizon: 24
+    rationale: 'Aggregate total load is a single, well-defined, reproducible series
+      and is itself a meaningful real-world quantity (total system load for an electricity
+      grid operator). The hourly mean is used rather than the sum to preserve the
+      kW unit.
+
+      '
+  Solar_Energy:
+    target: mean_solar_production_all_plants
+    construction: '(1) Compute the mean across all 137 plant columns at each 10-minute
+      timestamp. (2) Resample to hourly frequency by taking the mean of the six 10-minute
+      readings within each hour. Result: mean recorded solar-production value across
+      all 137 series, followed by hourly averaging. Not described as a capacity factor
+      unless source units establish capacity normalisation.
+
+      '
+    pipeline_input: Solar_hourly.csv
+    modelling_frequency: hourly
+    seasonal_period: 24
+    forecast_horizon: 24
+    rationale: 'Mean (not sum) is used because individual plant capacity varies. This
+      produces a representative cross-fleet production signal.
+
+      '
+  Jena_Climate:
+    target: T (degC)
+    rationale: 'Temperature is the most commonly used target for this dataset in the
+      forecasting literature and is the variable most other Jena Climate studies report
+      against, supporting comparability.
+
+      '
+    modelling_frequency: daily
+    seasonal_period: 7
+    forecast_horizon: 7
+forecasting:
+  deep_learning_backend: pytorch
+  hyperparameter_strategy: fixed_documented_defaults
+  models:
+    naive:
+      enabled: true
+      description: Forecast = last observed value, repeated for all horizon steps.
+    seasonal_naive:
+      enabled: true
+      description: Forecast = value at same seasonal position in previous cycle.
+      season_length_source: stl.default_periods_by_frequency
+    drift:
+      enabled: true
+      description: Linear extrapolation of the average trend over the training window.
+    arima:
+      enabled: true
+      order_selection: auto_arima
+      auto_arima_settings:
+        start_p: 0
+        start_q: 0
+        max_p: 5
+        max_q: 5
+        max_d: 2
+        seasonal: false
+        information_criterion: aic
+        stepwise: true
+        suppress_warnings: true
+      record_selected_order_in_metadata: true
+    sarima:
+      enabled: true
+      order_selection: auto_arima
+      auto_arima_settings:
+        start_p: 0
+        start_q: 0
+        max_p: 5
+        max_q: 5
+        max_d: 2
+        seasonal: true
+        max_P: 2
+        max_Q: 2
+        max_D: 1
+        information_criterion: aic
+        stepwise: true
+        suppress_warnings: true
+    ets:
+      enabled: true
+      error_type: auto
+      trend: auto
+      seasonal: auto
+      damped_trend_candidates:
+      - true
+      - false
+      selection_criterion: AIC
+    random_forest:
+      enabled: true
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 2
+      n_jobs: 1
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+    xgboost:
+      enabled: true
+      n_estimators: 300
+      max_depth: 6
+      learning_rate: 0.05
+      subsample: 0.9
+      colsample_bytree: 0.9
+      n_jobs: 1
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+    svr:
+      enabled: true
+      kernel: rbf
+      C: 10.0
+      epsilon: 0.1
+      gamma: scale
+      lag_features:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 12
+      feature_scaling: standard
+    lstm:
+      enabled: true
+      input_window: 24
+      hidden_size: 64
+      num_layers: 2
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+    gru:
+      enabled: true
+      input_window: 24
+      hidden_size: 64
+      num_layers: 2
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+    tcn:
+      enabled: true
+      input_window: 24
+      num_channels:
+      - 32
+      - 32
+      - 32
+      - 32
+      kernel_size: 3
+      dropout: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      max_epochs: 100
+      early_stopping_patience: 10
+      optimizer: adam
+      loss: mse
+  failure_handling:
+    on_model_failure: log_and_continue
+    on_dataset_failure: log_and_continue
+    max_retries: 1
+evaluation_metrics:
+  primary:
+  - MAE
+  - RMSE
+  - MAPE
+  - sMAPE
+  ranking_metric: RMSE
+similarity_analysis:
+  metrics_supported:
+  - euclidean
+  - cosine
+  - correlation
+  primary_metric: euclidean
+  clustering_method: hierarchical_average_linkage
+relationship_discovery:
+  correlation_methods:
+  - pearson
+  - spearman
+  correlation_strength_cuts:
+    weak: 0.3
+    moderate: 0.5
+    strong: 0.7
+  level_3_treatment: exploratory_only
+evidence_classification:
+  classes:
+  - Supported
+  - Partially Supported
+  - Inconclusive
+  - Unsupported
+  novelty_1_characterization_layer:
+    supported:
+      min_abs_correlation: 0.5
+      min_datasets_meeting_threshold: 5
+      requires_consistent_sign: true
+    partially_supported:
+      min_abs_correlation: 0.3
+      min_datasets_meeting_threshold: 4
+    inconclusive:
+      min_abs_correlation: 0.2
+      max_abs_correlation: 0.3
+    unsupported:
+      max_abs_correlation: 0.2
+  novelty_2_domain_profile:
+    supported:
+      min_spearman_r: 0.4
+    partially_supported:
+      min_spearman_r: 0.2
+    inconclusive:
+      min_spearman_r: 0.1
+      max_spearman_r: 0.2
+    unsupported:
+      max_spearman_r: 0.1
+experiment_manifest:
+  required_fields:
+  - experiment_id
+  - dataset_id
+  - timestamp
+  - source_module
+  - framework_version
+  - random_seed
+  - config_version
+  model_specific_required_fields:
+    arima:
+    - selected_order_p_d_q
+    sarima:
+    - selected_order_p_d_q
+    - selected_seasonal_order_P_D_Q_s
+  id_format: EXP-{date:%Y%m%dT%H%M%S}-{short_uuid}
+  dataset_id_format: '{dataset_name}__{target_variable}__{frequency}'
+logging:
+  streams:
+  - execution
+  - experiment
+  - error
+  - config
+  console_level: INFO
+  file_level: DEBUG
+  rotation_size_mb: 10
+  execution_retention_days: 60
+  experiment_retention_days: 365
+  error_retention_days: 365
+  config_retention_days: 365
+forecasting_behavior:
+  difficulty_thresholds:
+    easy_max_ratio: 0.5
+    moderate_max_ratio: 0.9
+  ranking_stability_threshold:
+    stable_max_ratio: 2.0
+  figure_dpi: 300
